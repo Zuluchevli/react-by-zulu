@@ -1,20 +1,46 @@
 import { useState } from "react"
-// import { Navigate } from "react-router";
+import { useNavigate } from "react-router";
+import { LoginUser } from "./api/api(handle).js";
+// import "./CSS/ALLCss.css";
 
 
 export default function Login() {
-
+    const navigator = useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         console.log("Email:", email);
         console.log("Password :", password);
 
-        alert("Login was successFull....")
-        setEmail("")
-        setPassword("")
+        // window.location.replace('http://localhost:3000/register');
+        if (!email || !password) {
+            alert("You must have to enter your email and password");
+            return;
+        }
+        const Saveuser = JSON.parse(localStorage.getItem("ragisterdUser"))
+
+        if (!Saveuser) {
+            alert("No user Found.. please ragister first...")
+            return;
+        }
+        if (email === Saveuser.email && password === Saveuser.password) {
+            alert("Login was successFull....")
+            localStorage.setItem("loggedIn", "true");
+            navigator("/contact")
+
+        } else {
+            alert("invalid email & password")
+            setEmail("")
+            setPassword("")
+            return;
+        }
+        await LoginUser(email, password)
+    }
+    const Pathragister = (a) => {
+        a.preventDefault()
+        navigator("/register")
     }
     return <>
         <div style={styles.container}>
@@ -37,15 +63,22 @@ export default function Login() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     style={styles.input}
-                    required
+                // required
                 />
 
                 <button type="submit" style={styles.button} >Login</button>
+                <div style={{ marginTop: 8 }}>
+                    Don't have an account?{" "}
+                    <button type="button" onClick={Pathragister} style={styles.linkButton}>
+                        Register
+                    </button>
+                </div>
             </form>
-            {/* <a href="./Ragister.jsx">utf</a> */}
         </div>
+
     </>
 }
+
 const styles = {
     container: {
         width: "300px",
@@ -76,4 +109,14 @@ const styles = {
         cursor: "pointer",
         border: "none",
     },
+    linkButton: {
+        padding: "6px 10px",
+        marginLeft: 6,
+        background: "transparent",
+        color: "#007bff",
+        border: "none",
+        cursor: "pointer",
+        textDecoration: "underline",
+
+    }
 }

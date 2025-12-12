@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router'
 import './App.css';
 import Contact from './compontents/Contact';
@@ -15,9 +16,10 @@ function App() {
       <BrowserRouter>
       <Navbar />
         <Routes>
-          <Route path='/' element={<Login />}> </Route>
+          <Route path='/login' element={<Login />}/> 
           <Route path='/register' element={<RagisterUser />}> </Route>
           <Route path='/contact' element={<Contact />}> </Route>
+          <Route path='*' element={<Login/>}></Route>
         </Routes>
 
       </BrowserRouter>

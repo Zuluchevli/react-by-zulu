@@ -1,18 +1,40 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router"
+import { RagisterForm } from "./api/api(handle).js"
 
 export default function RagisterUser() {
 
+
+    const navigator = useNavigate()
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [userId, setUSerId] = useState([])
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if (!name || !email || !password) {
+            alert("please fill all fields...."); return;
+        }
+        const newUser = { name, email, password }
+        localStorage.setItem("ragisterdUser", JSON.stringify(newUser))
+        alert("Registration successful. Please login.");
         console.log("Name:", name);
         console.log("Email:", email);
         console.log("Password", password);
+        setUSerId(newUser)
+        navigator("/login")
 
+        await RagisterForm({name,email,password})
+
+        
     }
+    useEffect(() => {
+        console.log(userId);
+        
+    }, [userId])
 
     return (<>
         <div style={styles.container}>

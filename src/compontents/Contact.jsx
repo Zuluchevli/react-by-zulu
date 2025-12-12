@@ -1,3 +1,4 @@
+import { AddContact } from './api/api(handle)';
 import './CSS/Contact.css';
 
 import { useState } from "react"
@@ -7,7 +8,7 @@ export default function Contact() {
     const [email, setEmail] = useState("")
     const [number, setNumber] = useState("")
 
-    const HandleSubmit = (r) => {
+    const  HandleSubmit = async(r) => {
         r.preventDefault()
         console.log(name);
         console.log(email);
@@ -17,7 +18,7 @@ export default function Contact() {
         setEmail("")
         setName("")
         setNumber("")
-        
+        await AddContact({name,email,number});
     }
 
     return <>
