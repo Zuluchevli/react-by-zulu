@@ -19,24 +19,30 @@ export default function Login() {
             alert("You must have to enter your email and password");
             return;
         }
-        const Saveuser = JSON.parse(localStorage.getItem("ragisterdUser"))
+        let user = await LoginUser(email, password)
+        navigator("/contact")
+        console.log(user);
 
-        if (!Saveuser) {
-            alert("No user Found.. please ragister first...")
-            return;
-        }
-        if (email === Saveuser.email && password === Saveuser.password) {
-            alert("Login was successFull....")
-            localStorage.setItem("loggedIn", "true");
-            navigator("/contact")
+        // if (email === Saveuser.email && password === Saveuser.password) {
+        //     alert("Login was successFull....")
+        //     localStorage.setItem("currUser", "true");
+        //     return;
 
-        } else {
-            alert("invalid email & password")
-            setEmail("")
-            setPassword("")
-            return;
-        }
-        await LoginUser(email, password)
+        // } else {
+        //     alert("invalid email & password")
+        //     setEmail("")
+        //     setPassword("")
+        //     return;
+        // }
+        // if (UserForm && UserForm.length > 0) {
+        //     alert("Login successful");
+        //     localStorage.setItem("loggedIn", "true");
+        //     localStorage.setItem("currentUserEmail", email);
+        //     navigator("/contact");
+        // } else {
+        //     alert("Invalid email & password");
+        //     setEmail(""); setPassword("");
+        // }
     }
     const Pathragister = (a) => {
         a.preventDefault()

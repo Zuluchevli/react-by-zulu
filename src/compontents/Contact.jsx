@@ -6,25 +6,26 @@ import { useState } from "react"
 export default function Contact() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [number, setNumber] = useState("")
+    const [phone, setPhone] = useState("")
 
-    const  HandleSubmit = async(r) => {
+    const handleSubmit = async (r) => {
         r.preventDefault()
-        console.log(name);
-        console.log(email);
-        console.log(number);
-        alert("Contact Added......")
+        // console.log(name);
+        // console.log(email);
+        // console.log(phone);
 
+        const curr_user = localStorage.getItem("currentUserEmail") || null;
+        await AddContact({ name, email, phone ,curr_user});
+        alert("Contact Added......")
         setEmail("")
         setName("")
-        setNumber("")
-        await AddContact({name,email,number});
+        setPhone("")
     }
 
     return <>
         <div className="contact-container">
-            <h1 style={{color:"blue"}}>Contact Form</h1>
-            <form onSubmit={HandleSubmit}className="contact-form" >
+            <h1 style={{ color: "blue" }}>Contact Form</h1>
+            <form onSubmit={handleSubmit} className="contact-form" >
                 <input type="text"
                     placeholder="Enter your Name"
                     value={name}
@@ -37,8 +38,8 @@ export default function Contact() {
                     required />
                 <input type="number"
                     placeholder="Enter your Phone NO."
-                    value={number}
-                    onChange={(a) => setNumber(a.target.value)}
+                    value={phone}
+                    onChange={(a) => setPhone(a.target.value)}
                     required />
                 <button type="submit">Add Contact</button>
             </form>

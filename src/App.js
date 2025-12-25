@@ -5,20 +5,18 @@ import Contact from './compontents/Contact';
 import Login from './compontents/Login'
 import RagisterUser from './compontents/Ragister';
 import Navbar from './compontents/Navbar';
-// import Login from './compontents/Login.jsx';
+import Showcontact from './compontents/Show-contact';
 
 function App() {
   return (
     <>
-      {/* <Login />
-      <RagisterUser />
-      <Contact /> */}
       <BrowserRouter>
       <Navbar />
         <Routes>
           <Route path='/login' element={<Login />}/> 
           <Route path='/register' element={<RagisterUser />}> </Route>
           <Route path='/contact' element={<Contact />}> </Route>
+          <Route path='/Show_contact' element={<Showcontact/>}> </Route>
           <Route path='*' element={<Login/>}></Route>
         </Routes>
 

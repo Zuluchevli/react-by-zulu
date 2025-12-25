@@ -8,46 +8,7 @@
       "phone": "123456789"
     },
     {
-      "id": "cb55"
-    },
-    {
-      "id": "83da"
-    },
-    {
-      "id": "3111"
-    },
-    {
-      "id": "58a4"
-    },
-    {
-      "id": "2135"
-    },
-    {
-      "id": "fa4c",
-      "name": "kjaj",
-      "email": "dkjva@g.c",
-      "password": "efdj"
-    },
-    {
-      "id": "56ca",
-      "name": "rakhi",
-      "email": "rakhi@g.c",
-      "password": "rakhi"
-    },
-    {
-      "id": "9312",
-      "name": "manan",
-      "email": "manan@g.c",
-      "password": "manan"
-    },
-    {
-      "id": "7585",
-      "name": "manan",
-      "email": "manan@g.c",
-      "password": "manan"
-    },
-    {
-      "id": "343a",
+      "id": "4fef",
       "name": "dhruv",
       "email": "dhruv@g.c",
       "password": "dhruv"
@@ -55,29 +16,11 @@
   ],
   "contacts": [
     {
-      "id": "2001",
-      "curr_user": "nishtha@g.c",
-      "name": "ks ",
-      "email": "mohil@gmail.com",
-      "phone": "234567"
-    },
-    {
-      "id": "6ab3",
-      "name": "maan",
-      "email": "mans3@g.c",
-      "number": "1234567"
-    },
-    {
-      "id": "958b",
-      "name": "d,msvn",
-      "email": "dnv@g.c",
-      "number": "098765"
-    },
-    {
-      "id": "c78e",
-      "name": "dskjk",
-      "email": "sklcdsjckv@g.c",
-      "number": "123456789"
+      "id": "682b",
+      "name": "dev123",
+      "email": "mug@g.com",
+      "phone": "87567576123456",
+      "curr_user": null
     }
   ]
 }
